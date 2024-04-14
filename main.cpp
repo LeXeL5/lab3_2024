@@ -81,11 +81,16 @@ struct List {
         }
         newNode->next = head;
         tail = newNode;
+        elementAt(size-1);
     }
     void insert(int index, int value) {
-        if (isEmpty()) return;
-        elementAt(index);
-        insertBeforeCurrent(value);
+        if (isEmpty()) {
+            add(value);
+        }
+        else {
+            elementAt(index);
+            insertBeforeCurrent(value);
+        }
     }
     void removeAt(int index) {
         elementAt(index);
@@ -135,8 +140,10 @@ struct List {
         return count;
     }
     void clear() {
+        if (isEmpty()) return;
+        toFirst();
         for (int i = size; i > 0; i--) {
-            removeAt(0);
+            removeCurrent();
         }
     }
 };
