@@ -84,7 +84,7 @@ struct List {
         elementAt(size-1);
     }
     void insert(int index, int value) {
-        if (isEmpty()) {
+        if ((isEmpty()) or (index == size)) {
             add(value);
         }
         else {
