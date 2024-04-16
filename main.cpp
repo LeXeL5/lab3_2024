@@ -50,7 +50,6 @@ struct List {
         if (isEmpty()) return;
         current = prev->next;
         currentIndex = currentIndex % size;
-
     }
     void insertBeforeCurrent(int value) {
         if (isEmpty()) return;
@@ -84,6 +83,7 @@ struct List {
         elementAt(size-1);
     }
     void insert(int index, int value) {
+        index = index % (size + 1);
         if ((isEmpty()) or (index == size)) {
             add(value);
         }
