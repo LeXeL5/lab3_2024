@@ -99,6 +99,9 @@ struct List {
     int elementAt(int index) {
         if (isEmpty()) return 0;
         index = index % size;
+        if (currentIndex > index){
+            toFirst();
+        }
         while (index != currentIndex) {
             toNext();
         }
